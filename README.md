@@ -1,4 +1,4 @@
-# mb-calendar
+# M&B Calendar
 
 Small interactive month-view calendar built with React and Moment Timezone.
 
