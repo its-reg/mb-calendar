@@ -108,7 +108,7 @@ const Calendar = () => {
   const weekdays = moment.weekdaysShort();
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', padding: 16, maxWidth: 600, display: 'grid', gridTemplateColumns: '1fr 300px', gap: 16 }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', padding: 16, maxWidth: 600, display: 'grid', gridTemplateColumns: window.innerWidth < 768 ? '1fr' : '1fr 300px', gap: 16 }}>
       <div>
         <header style={{ marginBottom: 16 }}>
           <h1 style={{ margin: 0 }}>{currentMonth.format('MMMM YYYY')}</h1>
