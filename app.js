@@ -14,8 +14,8 @@ const Calendar = () => {
 
   const getRandomImageUrl = () => {
     const images = [
-      'url_to_image_1',
-      'url_to_image_2',
+      'https://64.media.tumblr.com/8d4efda80fbbd83074b93efeef9e10d0/368d26a041dfae8c-37/s1280x1920/a4a31a7985b50a3a374e182943060ac8291b8d4b.jpg',
+      'https://64.media.tumblr.com/6d16b8827b28b99153e1b7c6cb5fb957/36cc8e5d86f378a1-db/s1280x1920/c93cc7f7e19dd616d8139503f7d7bf5f2630407e.jpg',
       // Add more images
     ];
     const monthIndex = currentMonth.month();
