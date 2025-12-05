@@ -25104,7 +25104,7 @@ const Calendar = ()=>{
         style: {
             fontFamily: 'Arial, sans-serif',
             padding: 16,
-            maxWidth: 1200,
+            maxWidth: 600,
             display: 'grid',
             gridTemplateColumns: '1fr 300px',
             gap: 16
