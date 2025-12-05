@@ -138,6 +138,19 @@ const Calendar = () => {
           </div>
         </div>
 
+        <div className="calendar-right">
+          <div style={{ marginBottom: 8 }}>
+            <img
+              src={getImageForMonth(currentMonth).url}
+              alt="Monthly"
+              style={{ width: '100%', height: 'auto', borderRadius: 8, objectFit: 'cover' }}
+            />
+            <div style={{ fontSize: 11, color: '#888', marginTop: 8, textAlign: 'center' }}>
+              {getImageForMonth(currentMonth).caption}
+            </div>
+          </div>
+        </div>
+
         <div className="calendar-left">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4 }}>
             {weekdays.map((w) => (
@@ -176,19 +189,6 @@ const Calendar = () => {
               <strong>Selected:</strong> {selectedDate.format('dddd, MMMM Do YYYY')}
             </div>
           )}
-        </div>
-
-        <div className="calendar-right">
-          <div style={{ marginBottom: 8 }}>
-            <img
-              src={getImageForMonth(currentMonth).url}
-              alt="Monthly"
-              style={{ width: '100%', height: 'auto', borderRadius: 8, objectFit: 'cover' }}
-            />
-            <div style={{ fontSize: 11, color: '#888', marginTop: 8, textAlign: 'center' }}>
-              {getImageForMonth(currentMonth).caption}
-            </div>
-          </div>
         </div>
       </div>
     </div>
