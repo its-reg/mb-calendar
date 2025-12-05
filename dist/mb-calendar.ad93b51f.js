@@ -25101,262 +25101,297 @@ const Calendar = ()=>{
     }
     const weekdays = (0, _momentTimezoneDefault.default).weekdaysShort();
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        style: {
-            fontFamily: 'Arial, sans-serif',
-            padding: 16,
-            maxWidth: 600,
-            display: 'grid',
-            gridTemplateColumns: window.innerWidth < 768 ? '1fr' : '1fr 300px',
-            gap: 16
-        },
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
-                    style: {
-                        marginBottom: 16
-                    },
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("style", {
+                children: `
+        .calendar-root { font-family: Arial, sans-serif; padding: 16px; max-width: 600px; display: grid; grid-template-columns: 1fr 300px; gap: 16px; }
+        .calendar-top { grid-column: 1 / -1; margin-bottom: 8px; }
+        .calendar-left { }
+        .calendar-right { }
+        @media (max-width: 767px) {
+          .calendar-root { grid-template-columns: 1fr; max-width: 100%; }
+        }
+      `
+            }, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 112,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "calendar-root",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "calendar-top",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
+                                style: {
+                                    marginBottom: 8
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                                        style: {
+                                            margin: 0
+                                        },
+                                        children: currentMonth.format('MMMM YYYY')
+                                    }, void 0, false, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 125,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        style: {
+                                            fontSize: 14,
+                                            color: '#555',
+                                            marginTop: 4
+                                        },
+                                        children: [
+                                            "Today: ",
+                                            (0, _momentTimezoneDefault.default)().format('dddd, MMMM Do YYYY')
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 126,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        style: {
+                                            fontSize: 12,
+                                            color: '#777',
+                                            marginTop: 2
+                                        },
+                                        children: [
+                                            "Current Time: ",
+                                            now.format('HH:mm:ss'),
+                                            " (",
+                                            (0, _momentTimezoneDefault.default).tz.guess(),
+                                            ")"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 129,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/App.jsx",
+                                lineNumber: 124,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    display: 'flex',
+                                    gap: 8,
+                                    marginTop: 8
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        onClick: handlePrevMonth,
+                                        style: {
+                                            padding: '8px 12px'
+                                        },
+                                        children: "Previous"
+                                    }, void 0, false, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 135,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        onClick: handleToday,
+                                        style: {
+                                            padding: '8px 12px'
+                                        },
+                                        children: "Today"
+                                    }, void 0, false, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 136,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        onClick: handleNextMonth,
+                                        style: {
+                                            padding: '8px 12px'
+                                        },
+                                        children: "Next"
+                                    }, void 0, false, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 137,
+                                        columnNumber: 13
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/App.jsx",
+                                lineNumber: 134,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/App.jsx",
+                        lineNumber: 123,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "calendar-left",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(7, 1fr)',
+                                    gap: 4
+                                },
+                                children: weekdays.map((w)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        style: {
+                                            textAlign: 'center',
+                                            fontWeight: 'bold'
+                                        },
+                                        children: w
+                                    }, w, false, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 144,
+                                        columnNumber: 15
+                                    }, undefined))
+                            }, void 0, false, {
+                                fileName: "src/App.jsx",
+                                lineNumber: 142,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    display: 'grid',
+                                    gridTemplateColumns: 'repeat(7, 1fr)',
+                                    gap: 4,
+                                    marginTop: 8
+                                },
+                                children: cells.map((c, idx)=>{
+                                    const isToday = c.date.isSame((0, _momentTimezoneDefault.default)(), 'day');
+                                    const isSelected = selectedDate && c.date.isSame(selectedDate, 'day');
+                                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        onClick: ()=>setSelectedDate(c.date.clone()),
+                                        style: {
+                                            padding: 8,
+                                            minHeight: 60,
+                                            textAlign: 'left',
+                                            background: isSelected ? '#2b8fff' : isToday ? '#e6f7ff' : c.inMonth ? '#fff' : '#f6f6f6',
+                                            color: c.inMonth ? '#000' : '#888',
+                                            border: '1px solid #ddd',
+                                            borderRadius: 4,
+                                            cursor: 'pointer'
+                                        },
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                style: {
+                                                    fontSize: 12
+                                                },
+                                                children: c.date.date()
+                                            }, void 0, false, {
+                                                fileName: "src/App.jsx",
+                                                lineNumber: 167,
+                                                columnNumber: 19
+                                            }, undefined),
+                                            isSelected && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                style: {
+                                                    fontSize: 11,
+                                                    marginTop: 6
+                                                },
+                                                children: "Selected"
+                                            }, void 0, false, {
+                                                fileName: "src/App.jsx",
+                                                lineNumber: 168,
+                                                columnNumber: 34
+                                            }, undefined)
+                                        ]
+                                    }, idx, true, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 153,
+                                        columnNumber: 17
+                                    }, undefined);
+                                })
+                            }, void 0, false, {
+                                fileName: "src/App.jsx",
+                                lineNumber: 148,
+                                columnNumber: 11
+                            }, undefined),
+                            selectedDate && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                style: {
+                                    marginTop: 16,
+                                    padding: 8,
+                                    border: '1px solid #eee',
+                                    borderRadius: 6
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                                        children: "Selected:"
+                                    }, void 0, false, {
+                                        fileName: "src/App.jsx",
+                                        lineNumber: 176,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    " ",
+                                    selectedDate.format('dddd, MMMM Do YYYY')
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/App.jsx",
+                                lineNumber: 175,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/App.jsx",
+                        lineNumber: 141,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "calendar-right",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             style: {
-                                margin: 0
-                            },
-                            children: currentMonth.format('MMMM YYYY')
-                        }, void 0, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 114,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            style: {
-                                fontSize: 14,
-                                color: '#555',
-                                marginTop: 4
+                                marginBottom: 8
                             },
                             children: [
-                                "Today: ",
-                                (0, _momentTimezoneDefault.default)().format('dddd, MMMM Do YYYY')
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 115,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            style: {
-                                fontSize: 12,
-                                color: '#777',
-                                marginTop: 2
-                            },
-                            children: [
-                                "Current Time: ",
-                                now.format('HH:mm:ss'),
-                                " (",
-                                (0, _momentTimezoneDefault.default).tz.guess(),
-                                ")"
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 118,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 113,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    style: {
-                        display: 'flex',
-                        gap: 8,
-                        marginBottom: 16
-                    },
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: handlePrevMonth,
-                            style: {
-                                padding: '8px 16px'
-                            },
-                            children: "Previous"
-                        }, void 0, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 124,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: handleToday,
-                            style: {
-                                padding: '8px 16px'
-                            },
-                            children: "Today"
-                        }, void 0, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 125,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: handleNextMonth,
-                            style: {
-                                padding: '8px 16px'
-                            },
-                            children: "Next"
-                        }, void 0, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 126,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 123,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    style: {
-                        marginBottom: 16
-                    },
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: getImageForMonth(currentMonth).url,
-                            alt: "Monthly",
-                            style: {
-                                width: '100%',
-                                height: 'auto',
-                                borderRadius: 8,
-                                objectFit: 'cover'
-                            }
-                        }, void 0, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 130,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            style: {
-                                fontSize: 11,
-                                color: '#888',
-                                marginTop: 8,
-                                textAlign: 'center'
-                            },
-                            children: getImageForMonth(currentMonth).caption
-                        }, void 0, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 135,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 129,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    style: {
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(7, 1fr)',
-                        gap: 4
-                    },
-                    children: weekdays.map((w)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            style: {
-                                textAlign: 'center',
-                                fontWeight: 'bold'
-                            },
-                            children: w
-                        }, w, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 142,
-                            columnNumber: 13
-                        }, undefined))
-                }, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 140,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    style: {
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(7, 1fr)',
-                        gap: 4,
-                        marginTop: 8
-                    },
-                    children: cells.map((c, idx)=>{
-                        const isToday = c.date.isSame((0, _momentTimezoneDefault.default)(), 'day');
-                        const isSelected = selectedDate && c.date.isSame(selectedDate, 'day');
-                        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                            onClick: ()=>setSelectedDate(c.date.clone()),
-                            style: {
-                                padding: 8,
-                                minHeight: 60,
-                                textAlign: 'left',
-                                background: isSelected ? '#2b8fff' : isToday ? '#e6f7ff' : c.inMonth ? '#fff' : '#f6f6f6',
-                                color: c.inMonth ? '#000' : '#888',
-                                border: '1px solid #ddd',
-                                borderRadius: 4,
-                                cursor: 'pointer'
-                            },
-                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: getImageForMonth(currentMonth).url,
+                                    alt: "Monthly",
+                                    style: {
+                                        width: '100%',
+                                        height: 'auto',
+                                        borderRadius: 8,
+                                        objectFit: 'cover'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "src/App.jsx",
+                                    lineNumber: 183,
+                                    columnNumber: 13
+                                }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     style: {
-                                        fontSize: 12
-                                    },
-                                    children: c.date.date()
-                                }, void 0, false, {
-                                    fileName: "src/App.jsx",
-                                    lineNumber: 165,
-                                    columnNumber: 17
-                                }, undefined),
-                                isSelected && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    style: {
                                         fontSize: 11,
-                                        marginTop: 6
+                                        color: '#888',
+                                        marginTop: 8,
+                                        textAlign: 'center'
                                     },
-                                    children: "Selected"
+                                    children: getImageForMonth(currentMonth).caption
                                 }, void 0, false, {
                                     fileName: "src/App.jsx",
-                                    lineNumber: 166,
-                                    columnNumber: 32
+                                    lineNumber: 188,
+                                    columnNumber: 13
                                 }, undefined)
                             ]
-                        }, idx, true, {
+                        }, void 0, true, {
                             fileName: "src/App.jsx",
-                            lineNumber: 151,
-                            columnNumber: 15
-                        }, undefined);
-                    })
-                }, void 0, false, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 146,
-                    columnNumber: 9
-                }, undefined),
-                selectedDate && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    style: {
-                        marginTop: 16,
-                        padding: 8,
-                        border: '1px solid #eee',
-                        borderRadius: 6
-                    },
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                            children: "Selected:"
-                        }, void 0, false, {
-                            fileName: "src/App.jsx",
-                            lineNumber: 174,
-                            columnNumber: 13
-                        }, undefined),
-                        " ",
-                        selectedDate.format('dddd, MMMM Do YYYY')
-                    ]
-                }, void 0, true, {
-                    fileName: "src/App.jsx",
-                    lineNumber: 173,
-                    columnNumber: 11
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/App.jsx",
-            lineNumber: 112,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
+                            lineNumber: 182,
+                            columnNumber: 11
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/App.jsx",
+                        lineNumber: 181,
+                        columnNumber: 9
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/App.jsx",
+                lineNumber: 122,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/App.jsx",
         lineNumber: 111,
         columnNumber: 5

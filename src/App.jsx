@@ -108,72 +108,88 @@ const Calendar = () => {
   const weekdays = moment.weekdaysShort();
 
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', padding: 16, maxWidth: 600, display: 'grid', gridTemplateColumns: window.innerWidth < 768 ? '1fr' : '1fr 300px', gap: 16 }}>
-      <div>
-        <header style={{ marginBottom: 16 }}>
-          <h1 style={{ margin: 0 }}>{currentMonth.format('MMMM YYYY')}</h1>
-          <div style={{ fontSize: 14, color: '#555', marginTop: 4 }}>
-            Today: {moment().format('dddd, MMMM Do YYYY')}
-          </div>
-          <div style={{ fontSize: 12, color: '#777', marginTop: 2 }}>
-            Current Time: {now.format('HH:mm:ss')} ({moment.tz.guess()})
-          </div>
-        </header>
+    <div>
+      <style>{`
+        .calendar-root { font-family: Arial, sans-serif; padding: 16px; max-width: 600px; display: grid; grid-template-columns: 1fr 300px; gap: 16px; }
+        .calendar-top { grid-column: 1 / -1; margin-bottom: 8px; }
+        .calendar-left { }
+        .calendar-right { }
+        @media (max-width: 767px) {
+          .calendar-root { grid-template-columns: 1fr; max-width: 100%; }
+        }
+      `}</style>
 
-        <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
-          <button onClick={handlePrevMonth} style={{ padding: '8px 16px' }}>Previous</button>
-          <button onClick={handleToday} style={{ padding: '8px 16px' }}>Today</button>
-          <button onClick={handleNextMonth} style={{ padding: '8px 16px' }}>Next</button>
+      <div className="calendar-root">
+        <div className="calendar-top">
+          <header style={{ marginBottom: 8 }}>
+            <h1 style={{ margin: 0 }}>{currentMonth.format('MMMM YYYY')}</h1>
+            <div style={{ fontSize: 14, color: '#555', marginTop: 4 }}>
+              Today: {moment().format('dddd, MMMM Do YYYY')}
+            </div>
+            <div style={{ fontSize: 12, color: '#777', marginTop: 2 }}>
+              Current Time: {now.format('HH:mm:ss')} ({moment.tz.guess()})
+            </div>
+          </header>
+
+          <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+            <button onClick={handlePrevMonth} style={{ padding: '8px 12px' }}>Previous</button>
+            <button onClick={handleToday} style={{ padding: '8px 12px' }}>Today</button>
+            <button onClick={handleNextMonth} style={{ padding: '8px 12px' }}>Next</button>
+          </div>
         </div>
 
-        <div style={{ marginBottom: 16 }}>
-          <img
-            src={getImageForMonth(currentMonth).url}
-            alt="Monthly"
-            style={{ width: '100%', height: 'auto', borderRadius: 8, objectFit: 'cover' }}
-          />
-          <div style={{ fontSize: 11, color: '#888', marginTop: 8, textAlign: 'center' }}>
-            {getImageForMonth(currentMonth).caption}
+        <div className="calendar-left">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4 }}>
+            {weekdays.map((w) => (
+              <div key={w} style={{ textAlign: 'center', fontWeight: 'bold' }}>{w}</div>
+            ))}
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4, marginTop: 8 }}>
+            {cells.map((c, idx) => {
+              const isToday = c.date.isSame(moment(), 'day');
+              const isSelected = selectedDate && c.date.isSame(selectedDate, 'day');
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setSelectedDate(c.date.clone())}
+                  style={{
+                    padding: 8,
+                    minHeight: 60,
+                    textAlign: 'left',
+                    background: isSelected ? '#2b8fff' : isToday ? '#e6f7ff' : c.inMonth ? '#fff' : '#f6f6f6',
+                    color: c.inMonth ? '#000' : '#888',
+                    border: '1px solid #ddd',
+                    borderRadius: 4,
+                    cursor: 'pointer'
+                  }}
+                >
+                  <div style={{ fontSize: 12 }}>{c.date.date()}</div>
+                  {isSelected && <div style={{ fontSize: 11, marginTop: 6 }}>Selected</div>}
+                </button>
+              );
+            })}
+          </div>
+
+          {selectedDate && (
+            <div style={{ marginTop: 16, padding: 8, border: '1px solid #eee', borderRadius: 6 }}>
+              <strong>Selected:</strong> {selectedDate.format('dddd, MMMM Do YYYY')}
+            </div>
+          )}
+        </div>
+
+        <div className="calendar-right">
+          <div style={{ marginBottom: 8 }}>
+            <img
+              src={getImageForMonth(currentMonth).url}
+              alt="Monthly"
+              style={{ width: '100%', height: 'auto', borderRadius: 8, objectFit: 'cover' }}
+            />
+            <div style={{ fontSize: 11, color: '#888', marginTop: 8, textAlign: 'center' }}>
+              {getImageForMonth(currentMonth).caption}
+            </div>
           </div>
         </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4 }}>
-          {weekdays.map((w) => (
-            <div key={w} style={{ textAlign: 'center', fontWeight: 'bold' }}>{w}</div>
-          ))}
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 4, marginTop: 8 }}>
-          {cells.map((c, idx) => {
-            const isToday = c.date.isSame(moment(), 'day');
-            const isSelected = selectedDate && c.date.isSame(selectedDate, 'day');
-            return (
-              <button
-                key={idx}
-                onClick={() => setSelectedDate(c.date.clone())}
-                style={{
-                  padding: 8,
-                  minHeight: 60,
-                  textAlign: 'left',
-                  background: isSelected ? '#2b8fff' : isToday ? '#e6f7ff' : c.inMonth ? '#fff' : '#f6f6f6',
-                  color: c.inMonth ? '#000' : '#888',
-                  border: '1px solid #ddd',
-                  borderRadius: 4,
-                  cursor: 'pointer'
-                }}
-              >
-                <div style={{ fontSize: 12 }}>{c.date.date()}</div>
-                {isSelected && <div style={{ fontSize: 11, marginTop: 6 }}>Selected</div>}
-              </button>
-            );
-          })}
-        </div>
-
-        {selectedDate && (
-          <div style={{ marginTop: 16, padding: 8, border: '1px solid #eee', borderRadius: 6 }}>
-            <strong>Selected:</strong> {selectedDate.format('dddd, MMMM Do YYYY')}
-          </div>
-        )}
       </div>
     </div>
   );
