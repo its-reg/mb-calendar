@@ -31,7 +31,7 @@ const Calendar = () => {
       caption: 'Artist: Reg @iamregressing'
     },
     {
-      url: 'https://64.media.tumblr.com/47c5e05175c3f57543f479aed18e991b/36c11bb2fbfa636b-9e/s1280x1920/329768f33e08d67207eb38fa2d7187f4c4f4afe7.jpg'
+      url: 'https://64.media.tumblr.com/47c5e05175c3f57543f479aed18e991b/36c11bb2fbfa636b-9e/s1280x1920/329768f33e08d67207eb38fa2d7187f4c4f4afe7.jpg',
       caption: 'Artist: Reg @iamregressing'
     },
     {
@@ -43,15 +43,15 @@ const Calendar = () => {
       caption: 'Artist: Reg @iamregressing'
     },
     {
-      url: 'https://media.discordapp.net/attachments/1383472681252556810/1383473152537006221/GsHJ-6cXsAAM4Ac.jpg?ex=6933a787&is=69325607&hm=4c3fa221572f282db302088569d23e4a82cc85838392f8cb84c9e46e9a2ccd54&=&format=webp&width=1320&height=1760',
+      url: 'https://64.media.tumblr.com/09d420f2004bce113db52f963b9b9354/672b16f6f31a2923-47/s540x810/609eada5e5a67e95b9e40963d9ed8bf1be1fd93f.jpg',
       caption: 'Artist: Reyna @chaiatelier'
     },
     {
-      url: 'https://cdn.discordapp.com/attachments/1383472681252556810/1383473349027434496/SPOILER_Untitled_Artwork.jpg?ex=6933a7b6&is=69325636&hm=f15cef52d8bf8b3ac1061d45674b938dddcf3a27a715ad0d95003e7c27991098&',
+      url: 'https://64.media.tumblr.com/05d14b5bacf474f13a14e8fa0d274da2/672b16f6f31a2923-db/s400x600/7a455b611c6288f3ec32a4e129f2cc5e84806d51.jpg',
       caption: 'Artist: Otosy @auroratellsstories'
     },
     {
-      url: 'https://media.discordapp.net/attachments/1383472681252556810/1383473647515205682/priest_tom_reg_n.png?ex=6933a7fd&is=6932567d&hm=b21cd637ec690c373cd5e0f59c4bc42063c5b79f85955d05f93b4243d3a636ff&=&format=webp&quality=lossless&width=1230&height=1760',
+      url: 'https://64.media.tumblr.com/1d858bda90d07a255f41b0e86fcfb6cd/672b16f6f31a2923-aa/s540x810/11e22e096f436cab437468098f172a252ed07ee6.pnj',
       caption: 'Artist: Reg @iamregressing'
     },
     {
@@ -59,7 +59,7 @@ const Calendar = () => {
       caption: 'Artist: Pique @piquanteye'
     },
     {
-      url: 'https://cdn.discordapp.com/attachments/1383472681252556810/1387890055493718079/IMG_3708.jpg?ex=6933e716&is=69329596&hm=dae4640671bcc639c987f8faafd3d3d0f7e5d0461cc055212305f13c6dee48a6&',
+      url: 'https://64.media.tumblr.com/90c42cecc2e86238df14335ec8ba3c06/672b16f6f31a2923-11/s400x600/791204a4ba417e5f3ebb51d26a479b5dfedec421.jpg',
       caption: 'Artist: Otosy @auroratellsstories'
     },
     {
