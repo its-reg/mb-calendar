@@ -55,8 +55,8 @@ const Calendar = () => {
       caption: 'Artist: Reg @iamregressing'
     },
     {
-      url: 'https://cdn.discordapp.com/attachments/1383472681252556810/1386504603280871556/IMG_0171.jpg?ex=69337a09&is=69322889&hm=da14de3d7d2e759d009c257e6457e48a7a553c300161f4b303ef29452c5d621e&',
-      caption: 'Artist: @pique'
+      url: 'https://64.media.tumblr.com/561290a1db0e2ba8dab3aac6701b4dde/bf939ed463abc69a-e8/s1280x1920/318f27b0d94f9f810f06e5638b4bf76c81e9ff4a.jpg',
+      caption: 'Artist: Pique @piquanteye'
     },
     {
       url: 'https://cdn.discordapp.com/attachments/1383472681252556810/1387890055493718079/IMG_3708.jpg?ex=6933e716&is=69329596&hm=dae4640671bcc639c987f8faafd3d3d0f7e5d0461cc055212305f13c6dee48a6&',
