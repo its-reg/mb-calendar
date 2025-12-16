@@ -69,7 +69,11 @@ const Calendar = () => {
     {
       url: 'https://64.media.tumblr.com/e1bcb182885af5cd39b8fb248e678d92/3173e5b1fd90d5ed-aa/s1280x1920/aab9ee0ec1969f5046104956f80c2b0830fdf9ca.jpg',
       caption: 'Artist: Reg @iamregressing'
-    }
+    },
+    {
+      url: 'https://64.media.tumblr.com/1291f4e1ba1e6cce1e3f722ae0434847/c2c69d318c932f8b-b1/s1280x1920/b5dd523467b9b43da890309c97be79ff69ca2ae4.jpg',
+      caption: 'Artist: Reg @iamregressing'
+    }    
   ];
 
   const getImageForMonth = (m) => {
